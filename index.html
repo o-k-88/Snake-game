@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Snake</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="app">
+      <header class="header">
+        <h1>Snake</h1>
+        <div class="scoreboard">
+          <span>Score: <strong id="score">0</strong></span>
+          <span>Best: <strong id="best">0</strong></span>
+        </div>
+      </header>
+
+      <main class="game-wrap">
+        <canvas
+          id="game"
+          width="480"
+          height="480"
+          aria-label="Snake game canvas"
+          role="img"
+        ></canvas>
+        <div class="controls">
+          <button id="btn-start" class="btn primary" aria-label="Start or Restart">Start</button>
+          <div class="dpad" aria-label="Directional controls">
+            <button class="btn dir" data-dir="up" aria-label="Up">▲</button>
+            <div class="row">
+              <button class="btn dir" data-dir="left" aria-label="Left">◀</button>
+              <button class="btn dir" data-dir="right" aria-label="Right">▶</button>
+            </div>
+            <button class="btn dir" data-dir="down" aria-label="Down">▼</button>
+          </div>
+        </div>
+        <p class="hint">
+          Use Arrow keys or WASD. On mobile, use the D-pad. Eat food, avoid walls and yourself.
+        </p>
+      </main>
+
+      <footer class="footer">
+        <small>Built with ❤️ – Have fun!</small>
+      </footer>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+      // Prevent page from scrolling on arrow/space keys when the game is focused
+      window.addEventListener(
+        "keydown",
+        function (e) {
+          const keys = ["ArrowUp", "ArrowDown", "ArrowLeft", "ArrowRight", " "];
+          if (keys.includes(e.key)) e.preventDefault();
+        },
+        { passive: false }
+      );
+    </script>
+  </body>
+</html>
